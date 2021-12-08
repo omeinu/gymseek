@@ -1,0 +1,51 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    command: bundle exec puma -C config/puma.rb
+
+    volumes:
+      - .:/gymseek
+      - public-data:/gymseek/public
+      - tmp-data:/gymseek/tmp
+      - log-data:/gymseek/log
+    networks:
+      - gymseek-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: gymseek_development
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - gymseek-network
+
+  web:
+    build:
+      context: ./nginx_docker
+    volumes:
+      - public-data:/gymseek/public
+      - tmp-data:/gymseek/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - gymseek-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
+
+networks:
+  gymseek-network:
+    external: true
