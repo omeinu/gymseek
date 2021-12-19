@@ -3,7 +3,7 @@ module ApplicationHelper
     if user.image?
       image_tag user.image.url
     else
-      image_tag "/assets/default_user.jpg"
+      image_tag asset_path("default_user.jpg")
     end
   end
 end
