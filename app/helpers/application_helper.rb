@@ -6,4 +6,8 @@ module ApplicationHelper
       image_tag asset_path("default_user.jpg")
     end
   end
+
+  def full_title(html_title = "")
+    html_title.blank? ? Constants::Base_title : "#{html_title} - #{Constants::Base_title}"
+  end
 end
