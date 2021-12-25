@@ -19,3 +19,4 @@ AllCops:
     - 'vendor/**/*'
     - 'path/ruby'
     - 'spec/spec_helper.rb'
+    - 'app/helpers/application_helper.rb'
