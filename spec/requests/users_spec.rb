@@ -33,7 +33,6 @@ RSpec.describe "Users", type: :request do
     end
 
     context "ログインしていない場合" do
-
       it "アカウント編集ページが表示されないこと" do
         subject
         expect(response).to have_http_status 302
@@ -50,6 +49,19 @@ RSpec.describe "Users", type: :request do
       end
       it "タイトルが正しく表示されること" do
         expect(response.body).to include('ログイン - Gymseek')
+      end
+    end
+  end
+
+  describe "GET users/passwords #new" do
+    context "パスワード再設定ページが正しく表示されること" do
+      before { get new_user_password_path }
+
+      it "正常なレスポンスであること" do
+        expect(response).to have_http_status 200
+      end
+      it "タイトルが正しく表示されること" do
+        expect(response.body).to include('パスワード再設定 - Gymseek')
       end
     end
   end
