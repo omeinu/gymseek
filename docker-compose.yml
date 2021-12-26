@@ -16,20 +16,20 @@ services:
     networks:
       - gymseek-network
 # =========ローカルと本番切り替え===========
-#    depends_on:
-#      - db
-#
-#  db:
-#    image: mysql:5.7
-#    environment:
-#      MYSQL_ROOT_PASSWORD: password
-#      MYSQL_USER: user
-#      MYSQL_PASSWORD: password
-#      MYSQL_DATABASE: gymseek_development
-#    volumes:
-#      - db-data:/var/lib/mysql
-#    networks:
-#      - gymseek-network
+    #depends_on:
+    #  - db
+
+  #db:
+    #image: mysql:5.7
+    #environment:
+    #  MYSQL_ROOT_PASSWORD: password
+    #  MYSQL_USER: user
+    #  MYSQL_PASSWORD: password
+    #  MYSQL_DATABASE: gymseek_development
+    #volumes:
+    #  - db-data:/var/lib/mysql
+    #networks:
+    #  - gymseek-network
 # ======================================
 
   web:
