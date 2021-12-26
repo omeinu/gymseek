@@ -6,34 +6,28 @@
   <%= render "users/shared/error_messages", resource: resource %>
   <div class="row">
     <div class="col-sm-10 offset-sm-1 border border-dark text-center p-3 shadow rounded bg-light">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-
-      <div class="field my-3">
-        <%= f.label :name, "お名前" %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control col-sm-6 offset-sm-3" %>
-      </div>
-
-      <div class="field my-3">
-        <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-sm-6 offset-sm-3" %>
-      </div>
-
-      <div class="field my-3">
-        <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-sm-6 offset-sm-3" %>
-      </div>
-
-      <div class="field my-3">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-sm-6 offset-sm-3" %>
-      </div>
-
-      <div class="actions my-3">
-        <%= f.submit "登録する", class: "btn btn-dark" %>
-      </div>
-    <% end %>
-    <%= render "users/shared/links" %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <div class="field my-3">
+          <%= f.label :name, "お名前" %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control col-sm-6 offset-sm-3" %>
+        </div>
+        <div class="field my-3">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-sm-6 offset-sm-3" %>
+        </div>
+        <div class="field my-3">
+          <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-sm-6 offset-sm-3" %>
+        </div>
+        <div class="field my-3">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-sm-6 offset-sm-3" %>
+        </div>
+        <div class="actions my-3">
+          <%= f.submit "登録する", class: "btn btn-dark" %>
+        </div>
+      <% end %>
+      <%= render "users/shared/links" %>
     </div>
   </div>
 </div>
