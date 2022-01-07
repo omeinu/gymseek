@@ -1,17 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  let!(:user) { create(:user) }
+  let!(:user) { FactoryBot.create(:user) }
 
   describe "GET users/registrations #new" do
-    context "新規登録ページが正しく表示されること" do
-      before { get signup_path }
+    subject { get signup_path }
 
-      it "正常なレスポンスであること" do
-        expect(response).to have_http_status 200
+    context "ログインしていない場合に新規登録ページが正しく表示されること" do
+      it '正常なレスポンスであること' do
+        subject
+        expect(response.status).to eq 200
       end
+
       it "タイトルが正しく表示されること" do
+        subject
         expect(response.body).to include('新規登録 - Gymseek')
+      end
+    end
+
+    context "ログインしている場合はトップページへ移動すること" do
+      before { sign_in user }
+
+      it '他のページへ移動すること' do
+        subject
+        expect(response.status).to eq 302
       end
     end
   end
@@ -22,46 +34,73 @@ RSpec.describe "Users", type: :request do
     context "ログインしている場合にアカウント編集ページが正しく表示されること" do
       before { sign_in user }
 
-      it "正常なレスポンスであること" do
+      it '正常なレスポンスであること' do
         subject
-        expect(response).to have_http_status 200
+        expect(response.status).to eq 200
       end
+
       it "タイトルが正しく表示されること" do
         subject
         expect(response.body).to include('アカウント編集 - Gymseek')
       end
     end
 
-    context "ログインしていない場合" do
-      it "アカウント編集ページが表示されないこと" do
+    context "ログインしていない場合はトップページへ移動すること" do
+      before { get edit_user_registration_path }
+
+      it '他のページへ移動すること' do
         subject
-        expect(response).to have_http_status 302
+        expect(response.status).to eq 302
       end
     end
   end
 
   describe "GET users/sessions #new" do
-    context "ログインページが正しく表示されること" do
-      before { get login_path }
+    subject { get login_path }
 
-      it "正常なレスポンスであること" do
-        expect(response).to have_http_status 200
+    context "ログインしていない場合にログインページが正しく表示されること" do
+      it '正常なレスポンスであること' do
+        subject
+        expect(response.status).to eq 200
       end
+
       it "タイトルが正しく表示されること" do
+        subject
         expect(response.body).to include('ログイン - Gymseek')
+      end
+    end
+
+    context "ログインしている場合はトップページへ移動すること" do
+      before { sign_in user }
+
+      it '他のページへ移動すること' do
+        subject
+        expect(response.status).to eq 302
       end
     end
   end
 
   describe "GET users/passwords #new" do
-    context "パスワード再設定ページが正しく表示されること" do
-      before { get new_user_password_path }
+    subject { get new_user_password_path }
 
-      it "正常なレスポンスであること" do
-        expect(response).to have_http_status 200
+    context "ログインしていない場合にパスワード再設定ページが正しく表示されること" do
+      it '正常なレスポンスであること' do
+        subject
+        expect(response.status).to eq 200
       end
+
       it "タイトルが正しく表示されること" do
+        subject
         expect(response.body).to include('パスワード再設定 - Gymseek')
+      end
+    end
+
+    context "ログインしている場合はトップページへ移動すること" do
+      before { sign_in user }
+
+      it '他のページへ移動すること' do
+        subject
+        expect(response.status).to eq 302
       end
     end
   end

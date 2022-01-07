@@ -7,6 +7,8 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates :name, presence: true
 
+  has_many :gyms
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

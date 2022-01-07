@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_135407) do
+ActiveRecord::Schema.define(version: 2022_01_02_033326) do
+
+  create_table "gyms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
+    t.string "url"
+    t.string "image"
+    t.time "opening_time"
+    t.time "closing_time"
+    t.text "introduction"
+    t.boolean "fitness", default: false
+    t.boolean "swimming", default: false
+    t.boolean "yoga", default: false
+    t.boolean "personal", default: false
+    t.boolean "shower", default: false
+    t.boolean "sauna", default: false
+    t.boolean "parking", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_gyms_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false

@@ -5,79 +5,19 @@
 	</div>
 </div>
 <div class="container">
-	<div class="row my-5">
-		<p class="col-7 display-6 offset-sm-3 border border-dark text-center py-3 rounded-pill">条件を選んで探す</p>
+	<div class="row my-3">
+		<p class="col-6 display-5 offset-sm-3 border border-dark text-center py-3 my-5 rounded-pill">お住まいの地域から探す</p>
 	</div>
-</div>
-<div class="container">
-	<div class="row my-5">
-		<p class="col-7 display-6 offset-sm-3 border border-dark text-center py-3 rounded-pill">地域から探す</p>
+	<div class="row mb-5">
+		<div class="col-sm-7 text-right">
+			<%= image_tag asset_path("okayama_map.jpg"), class: "img-fluid pt-4 rounded-circle", alt: "Responsive image" %>
+		</div>
+		<%= search_form_for @search, class: "row form-group form-inline col-sm-5" do |f| %>
+			<%= f.select :city_cont, @city_array, { include_blank: '選択してください' },  { class: "form-control col-sm-6 mx-3" } %>
+			<%= f.submit class: "btn btn-outline-primary my-2 my-sm-0 mr-2 col-sm-2" %>
+		<% end %>
 	</div>
 	<div class="row">
-		<div class="col-sm-6">
-			<%= image_tag asset_path("home_japan_image.png"), class: "img-fluid pt-4 pr-4", alt: "Responsive image" %>
-		</div>
-		<div class="col-sm-6">
-			<p>北海道・東北</p>
-			<p>
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-			</p>
-			<p>関東</p>
-			<p>
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-
-			</p>
-			<p>中部</p>
-			<p>
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-			</p>
-			<p>近畿</p>
-			<p>
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-			</p>
-			<p>中国・四国</p>
-			<p>
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-			</p>
-			<p>九州・沖縄</p>
-			<p>
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-				<%= link_to " 北海道 ", "/" %>|
-			</p>
-		</div>
-
-
+		<%= link_to "もっと詳しい条件で探す", gyms_path, class: "col-5 display-6 offset-sm-4 text-center py-3 btn btn-outline-primary my-5 text-center" %>
 	</div>
 </div>

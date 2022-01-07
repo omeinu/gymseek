@@ -23,5 +23,6 @@ module Gymseek
             controller_specs: false,
             routing_specs: false
     end
+    config.time_zone = "Tokyo"
   end
 end

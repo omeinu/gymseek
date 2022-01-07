@@ -7,13 +7,13 @@
 		<ul class="navbar-nav mr-auto">
 			<% if user_signed_in? %>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle form-inline" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="user-icon header-icon"><%= user_display(current_user) %></span><%= current_user.name %>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<% if current_user.email !=  'guest@example.com' %>
-							<%= link_to "アカウントの編集", edit_user_registration_path, class: "dropdown-item"%>
-						<% end %>
+            <%= link_to "ジムを登録する", new_gym_path, class: "dropdown-item" %>
+            <%= link_to "Myジム", gyms_path(q: { user_id_eq: current_user.id }), class: "dropdown-item" %>
+            <%= link_to "アカウントの編集", edit_user_registration_path, class: "dropdown-item"%>
 						<div class="dropdown-divider"></div>
 						<%= link_to "ログアウト", logout_path, class: "dropdown-item"%>
 					</div>
@@ -30,10 +30,12 @@
 				</li>
 			<% end %>
 		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
+    <%= search_form_for @search do |f| %>
+      <div class="form-group row form-inline my-2 my-lg-0">
+        <%= f.search_field :name_cont, class: 'form-control mr-sm-2', placeholder: "ジム名を入力" %>
+        <%= f.submit class: "btn btn-outline-primary my-2 my-sm-0 mr-2" %>
+      </div>
+    <% end %>
 	</div>
 </nav>
 <div class="position-absolute alert-notice">
