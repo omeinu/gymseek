@@ -29,10 +29,12 @@ ul{
 }
 .user-icon img{
   border-radius: 50%;
+  object-fit: cover;
+
 }
 .header-icon img{
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   vertical-align: top;
   margin-right: 5px;
 }
@@ -40,7 +42,22 @@ ul{
   width: 180px;
   height: 180px;
 }
+.gym-icon img{
+  max-width: 100%;
+  height: auto;
+}
+.gym-index-icon img{
+  height: 240px;
+  object-fit: cover;
+}
+.gym-show-icon img{
+  height: 300px;
+  object-fit: cover;
+}
 .position-absolute{
   z-index: 10;
   width: 100%;
+}
+#introduction_text_field{
+  height: 200px;
 }

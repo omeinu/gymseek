@@ -7,7 +7,7 @@ Rails:
 
 # 文字数制限を120文字に設定
 Layout/LineLength:
-  Max: 120
+  Max: 240
 
 #rubocopで検証したくないフォルダを指定
 AllCops:

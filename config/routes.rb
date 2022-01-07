@@ -11,5 +11,6 @@ devise_scope :user do
   get "login", :to => "users/sessions#new"
   get "logout", :to => "users/sessions#destroy"
 end
-  get '/' => 'home#top'
+  root to: 'home#top'
+  resources :gyms
 end

@@ -7,6 +7,30 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      gym: ジム
+    attributes:
+      gym:
+        id: ID
+        name: ジム名
+        city: 市区町村
+        address: 住所
+        phone_number: 電話番号
+        image: 画像
+        url: 公式サイト
+        opening_time: 開店時間
+        closing_time: 閉店時間
+        introduction: 紹介文
+        parking: 駐車場
+        fitness: フィットネス
+        swimming: プール
+        yoga: ヨガ
+        personal: パーソナル
+        shower: シャワー
+        sauna: サウナ
+
+
+
   date:
     abbr_day_names:
     - 日

@@ -1,0 +1,54 @@
+<% content_for(:html_title, 'ジム詳細') %>
+<div class="container">
+  <div class="row my-5">
+    <p class="col-sm-4 display-6 offset-sm-4 border border-dark text-center py-3 mt-5 rounded-pill bg-light shadow">ジム詳細</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 offset-sm-1 border border-dark text-center p-3 shadow rounded bg-light">
+      <div class="d-flex justify-content-around mt-4">
+        <div class="gym-icon gym-show-icon col-sm-5">
+          <%= gym_display(@gym) %>
+        </div>
+        <div class="col-sm-7 px-0">
+          <div class="row mb-4">
+            <h1 class="col-sm-12 offset-sm-1 text-left"><%= @gym.name %></h1>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3 text-info"><%= Gym.human_attribute_name(:address) %></div>
+            <div class="col-sm-9 text-left"><%= @gym.city + @gym.address %></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3 text-info">営業時間</div>
+            <% if @gym.opening_time && @gym.closing_time %>
+              <div class="col-sm-9 text-left"><%= @gym.opening_time.strftime("%H:%M") %> 〜 <%= @gym.closing_time.strftime("%H:%M") %></div>
+            <% end %>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3 text-info">公式サイト</div>
+            <div class="col-sm-9 text-left"><%= link_to "#{@gym.url}", @gym.url, class: "text-dark" %></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3 text-info"><%= Gym.human_attribute_name(:phone_number) %></div>
+            <div class="col-sm-9 text-left"><%= @gym.phone_number %></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3 text-info">紹介文</div>
+            <div class="col-sm-9 text-left"><%= @gym.introduction %></div>
+          </div>
+          <div class="row mt-4">
+            <% @gym_options.each do |option| %>
+              <% if @gym.send(option) %>
+                  <%= form_with model: @gym, class: "col-sm-2 text-center rounded bg-info p-0 m-1", local: true do |f| %>
+                    <%= f.label :"#{ option }", class: "text-white small pt-2" %>
+                  <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% if user_signed_in? && current_user.id == @gym.user_id %>
+        <p class="my-5"><%= link_to "編集", edit_gym_path, class: "btn btn-dark" %> <%= link_to "削除", @gym, method: :delete, data: { confirm: "ジム[#{@gym.name}]を削除します。本当によろしいですか？" }, class: "btn btn-danger" %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
