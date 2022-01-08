@@ -13,6 +13,9 @@
  */
 @import "bootstrap";
 
+body{
+  font-size: 20px;
+}
 ul{
   list-style: none;
   padding-left: 0;
@@ -22,6 +25,7 @@ ul{
     background-size: cover;
     background-position: center 60%;
     opacity: 0.9;
+    height: 700px;
   }
 .img{
     max-width: 100%;
@@ -33,25 +37,25 @@ ul{
 
 }
 .header-icon img{
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   vertical-align: top;
   margin-right: 5px;
 }
 .user-edit-icon img{
-  width: 180px;
-  height: 180px;
+  width: 280px;
+  height: 280px;
 }
 .gym-icon img{
   max-width: 100%;
   height: auto;
 }
 .gym-index-icon img{
-  height: 240px;
+  height: 280px;
   object-fit: cover;
 }
 .gym-show-icon img{
-  height: 300px;
+  height: 360px;
   object-fit: cover;
 }
 .position-absolute{

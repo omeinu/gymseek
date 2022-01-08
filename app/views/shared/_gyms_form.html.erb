@@ -3,11 +3,11 @@
 		<tbody>
 			<tr>
 				<td><%= f.label :image %></td>
-				<td><%= f.file_field :image, autofocus: true, autocomplete: "image", class: "col-sm-6　p-0" %></td>
+				<td><%= f.file_field :image, autocomplete: "image", class: "col-sm-6　p-0" %></td>
 			</tr>
 			<tr>
 				<td><%= f.label :name %></td>
-				<td><%= f.text_field :name, placeholder: "ジム名", autofocus: true, autocomplete: "name", class: "form-control col-sm-7 offset-sm-2" %></td>
+				<td><%= f.text_field :name, placeholder: "ジム名", autocomplete: "name", class: "form-control col-sm-7 offset-sm-2" %></td>
 			</tr>
 			<tr>
 				<td><%= f.label :city %></td>
@@ -17,27 +17,27 @@
 			</tr>
 			<tr>
 				<td><%= f.label :address %></td>
-				<td><%= f.text_field :address, placeholder: "住所", autofocus: true, autocomplete: "address", class: "form-control col-sm-7 offset-sm-2" %></td>
+				<td><%= f.text_field :address, placeholder: "住所", autocomplete: "address", class: "form-control col-sm-7 offset-sm-2" %></td>
 			</tr>
 			<tr>
 				<td><%= f.label :phone_number %></td>
-				<td><%= f.text_field :phone_number, placeholder: "電話番号", autofocus: true, autocomplete: "phone_number", class: "form-control col-sm-7 offset-sm-2" %></td>
+				<td><%= f.text_field :phone_number, placeholder: "電話番号", autocomplete: "phone_number", class: "form-control col-sm-7 offset-sm-2" %></td>
 			</tr>
 			<tr>
 				<td><%= f.label :url %></td>
-				<td><%= f.url_field :url, placeholder: "公式サイトのアドレス", autofocus: true, autocomplete: "url", class: "form-control col-sm-7 offset-sm-2" %></td>
+				<td><%= f.url_field :url, placeholder: "公式サイトのアドレス", autocomplete: "url", class: "form-control col-sm-7 offset-sm-2" %></td>
 			</tr>
 			<tr>
 				<td><%= f.label :opening_time %></td>
-				<td><%= f.time_field :opening_time, placeholder: "開店時間", autofocus: true, autocomplete: "opening_time", class: "form-control col-sm-7 offset-sm-2" %></td>
+				<td><%= f.time_field :opening_time, placeholder: "開店時間", autocomplete: "opening_time", class: "form-control col-sm-7 offset-sm-2" %></td>
 			</tr>
 			<tr>
 				<td><%= f.label :closing_time %></td>
-				<td><%= f.time_field :closing_time, placeholder: "閉店時間", autofocus: true, autocomplete: "closing_time", class: "form-control col-sm-7 offset-sm-2" %></td>
+				<td><%= f.time_field :closing_time, placeholder: "閉店時間", autocomplete: "closing_time", class: "form-control col-sm-7 offset-sm-2" %></td>
 			</tr>
 			<tr class="py-5">
 				<td><%= f.label :introduction %></td>
-				<td><%= f.text_area :introduction, placeholder: "紹介文", autofocus: true, autocomplete: "introduction", class: "form-control col-sm-7 offset-sm-2", id: "introduction_text_field" %></td>
+				<td><%= f.text_area :introduction, placeholder: "紹介文", autocomplete: "introduction", class: "form-control col-sm-7 offset-sm-2", id: "introduction_text_field" %></td>
 			</tr>
 			<% gym_options.each do |option| %>
 				<tr>
@@ -48,6 +48,6 @@
 		</tbody>
 	</table>
 	<div class="actions my-3">
-		<%= f.submit "登録する", class: "btn btn-dark" %>
+		<%= f.submit "登録する", class: "btn btn-dark my-5" %>
 	</div>
 <% end %>

@@ -1,23 +1,25 @@
 <div class="jumbotron jumbotron-fluid">
-	<div class="container">
-		<h1 class="display-2 text-white text-center my-5 py-5">Gymseek</h1>
-		<p class="lead display-5 text-white text-center pb-4">岡山で自分に合ったジムを見つけよう</p>
+	<div class="d-flex align-items-center flex-column text-white">
+		<h1 class="display-1 my-5 py-5">Gymseek</h1>
+		<h2 class="text-white pb-4">岡山で自分に合ったジムを見つけよう</h2>
 	</div>
 </div>
-<div class="container">
-	<div class="row my-3">
-		<p class="col-6 display-5 offset-sm-3 border border-dark text-center py-3 my-5 rounded-pill">お住まいの地域から探す</p>
+<div class="d-flex align-items-center flex-column">
+	<div class="my-3">
+		<h2 class="my-5 border lead bg-light p-4 mt-5 rounded-pill">お 住 ま い の 地 域 か ら 探 す</h2>
 	</div>
-	<div class="row mb-5">
-		<div class="col-sm-7 text-right">
-			<%= image_tag asset_path("okayama_map.jpg"), class: "img-fluid pt-4 rounded-circle", alt: "Responsive image" %>
+	<div class="col-lg-7 mb-5">
+		<%= image_tag asset_path("okayama_map.jpg"), class: "img-fluid pt-4 rounded-circle", alt: "Responsive image" %>
+	</div>
+	<div class="container">
+		<div class="row mb-5">
+			<%= search_form_for @search, class: "form-group form-inline col-10 offset-lg-3 offset-1" do |f| %>
+				<%= f.select :city_cont, @city_array, { include_blank: '選択してください' },  { class: "form-control col-lg-4 col-7 mx-3" } %>
+				<%= f.submit class: "col-lg-2 col-4  btn btn-outline-primary my-2 mr-2" %>
+			<% end %>
 		</div>
-		<%= search_form_for @search, class: "row form-group form-inline col-sm-5" do |f| %>
-			<%= f.select :city_cont, @city_array, { include_blank: '選択してください' },  { class: "form-control col-sm-6 mx-3" } %>
-			<%= f.submit class: "btn btn-outline-primary my-2 my-sm-0 mr-2 col-sm-2" %>
-		<% end %>
-	</div>
-	<div class="row">
-		<%= link_to "もっと詳しい条件で探す", gyms_path, class: "col-5 display-6 offset-sm-4 text-center py-3 btn btn-outline-primary my-5 text-center" %>
+		<div class="row">
+			<%= link_to "もっと詳しい条件で探す", gyms_path, class: "col-6 display-6 offset-3 text-center py-3 btn btn-outline-primary my-5 text-center" %>
+		</div>
 	</div>
 </div>
