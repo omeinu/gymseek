@@ -3,25 +3,25 @@
   <div class="row my-5">
     <p class="col-sm-4 display-6 offset-sm-4 border border-dark text-center py-3 mt-5 rounded-pill bg-light shadow">ジム一覧</p>
   </div>
-  <div class="col-sm-10 offset-sm-1 rounded border-light bg-light shadow">
+  <div class="col-lg-10 offset-lg-1 rounded border-light bg-light shadow">
     <h3 class="text-center py-4">詳細検索</h3>
     <%= search_form_for @search, class: "p-3" do |f| %>
       <div class="form-group form-inline">
-        <div class="row col-sm-10 offset-sm-1 mb-4">
-          <%= f.label :name, class: "col-sm-2 col-form-label bg-info text-white rounded" %>
+        <div class="row col-lg-11 offset-lg-1 mb-4">
+          <%= f.label :name, class: "col-3 col-form-label bg-info text-white rounded" %>
           <div class="col-sm-9">
-            <%= f.search_field :name_cont, placeholder: "ジム名", autofocus: true, autocomplete: "name", class: "form-control w-100" %>
+            <%= f.search_field :name_cont, placeholder: "ジム名", autocomplete: "name", class: "form-control w-100" %>
           </div>
         </div>
-        <div class="row col-sm-10 offset-sm-1 mb-4">
-          <%= f.label "住所", class: "col-form-label col-sm-2 bg-info text-white rounded" %>
+        <div class="row col-lg-11 offset-lg-1 mb-4">
+          <%= f.label "住所", class: "col-form-label col-3 bg-info text-white rounded" %>
           <%= f.select :city_cont, @city_array, { include_blank: '選択してください' },  { class: "form-control mx-3 col-sm-3" } %>
-				  <%= f.search_field :address_cont, placeholder: "住所", autofocus: true, autocomplete: "address", class: "form-control col-sm-5" %>
+				  <%= f.search_field :address_cont, placeholder: "住所", autocomplete: "address", class: "form-control col-sm-5" %>
         </div>
         <h4 class="text-center py-4 m-auto">オプションを指定</h4>
-        <div class="row mb-4 offset-sm-2">
+        <div class="row mb-4 offset-lg-1">
           <% @gym_options.each do |option| %>
-            <div class="col-sm-3  btn-group-toggle mx-1 my-3" data-toggle="buttons">
+            <div class="col-4 col-lg-3 btn-group-toggle my-3" data-toggle="buttons">
               <label class="btn btn-outline-info form-check form-control pl-2">
                 <%= f.check_box :"#{ option }_eq_any", { class: "form-check-input" }, checked_value = "true", unchecked_value = "" %>
                 <%= f.label :"#{ option }" %>
@@ -35,33 +35,33 @@
       </div>
     <% end %>
   </div>
-  <div class="row">
-    <div class="col-sm-12 text-center p-3 ">
+  <div>
+    <div class="text-center p-3">
       <table class="table table-striped">
         <thead>
           <tr>
-            <h3 class="mb-5">検索結果<%= @gyms.total_count %>件</h3>
+            <h3 class="my-5">検索結果<%= @gyms.total_count %>件</h3>
           </tr>
         </thead>
         <tbody>
           <% @gyms.each do |gym| %>
-              <tr>
-                <td class="col-sm-5">
+              <tr class="row">
+                <td class="col-lg-5">
                   <%= link_to(gym_path(gym)) do %>
                     <div class="gym-icon gym-index-icon">
                       <%= gym_display(gym) %>
                     </div>
                   <% end %>
                 </td>
-                <td>
+                <td class="col-lg-7">
                   <div class="gym-icon gym-index-icon my-2 text-left">
                     <h3><%= gym.name %></h3>
-                    <p class="my-4"><%= gym.city + gym.address %></p>
-                    <p><%= gym.introduction %></p>
-                    <div class="row mt-4">
+                    <p class="my-4 h6"><%= gym.city + gym.address %></p>
+                    <p class="h6"><%= gym.introduction %></p>
+                    <div class="row mt-4 offset-2 offset-lg-1">
                       <% @gym_options.each do |option| %>
                         <% if gym.send(option) %>
-                            <%= form_with model: gym, class: "col-sm-2 text-center rounded bg-info p-0 m-1", local: true do |f| %>
+                            <%= form_with model: gym, class: "col-3 col-lg-3 text-center rounded bg-info p-0 m-1 h6", local: true do |f| %>
                               <%= f.label :"#{ option }", class: "text-white small pt-2" %>
                             <% end %>
                         <% end %>

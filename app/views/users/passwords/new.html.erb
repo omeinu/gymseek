@@ -1,18 +1,18 @@
 <% content_for(:html_title, 'パスワード再設定') %>
-<div class="container">
+<div class="container py-5">
   <div class="row my-5">
     <p class="col-sm-4 display-6 offset-sm-4 border border-dark text-center py-3 mt-5 rounded-pill bg-light shadow">パスワード再設定</p>
   </div>
   <%= render "users/shared/error_messages", resource: resource %>
-  <div class="row">
+  <div class="row my-5">
     <div class="col-sm-10 offset-sm-1 border border-dark text-center p-3 shadow rounded bg-light">
       <%= form_with model: @user, url: user_password_path, id: 'new_user', class: 'new_user', local: true do |f| %>
         <div class="field my-3">
           <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-sm-6 offset-sm-3 my-4" %>
+          <%= f.email_field :email, autocomplete: "email", class: "form-control col-8 offset-2 my-5 col-sm-6 offset-sm-3 my-4" %>
         </div>
         <div class="actions my-3">
-          <%= f.submit "メールを送信する", class: "btn btn-dark" %>
+          <%= f.submit "メールを送信する", class: "btn btn-dark my-5" %>
         </div>
       <% end %>
       <%= render "users/shared/links" %>

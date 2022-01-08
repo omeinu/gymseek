@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<%= link_to "Gymseek", "/", class: "navbar-brand" %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-4">
+	<%= link_to "Gymseek", root_path, class: "navbar-brand" %>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
+		<ul class="navbar-nav mr-auto h5">
 			<% if user_signed_in? %>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle form-inline" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
