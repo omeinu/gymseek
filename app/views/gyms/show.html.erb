@@ -14,7 +14,7 @@
         </div>
         <div class="col-lg-11 row mb-3">
           <div class="col-4 text-info"><%= Gym.human_attribute_name(:address) %></div>
-          <div class="col-7 text-left"><%= @gym.city + @gym.address %></div>
+          <div class="col-7 text-left h5"><%= @gym.full_address %></div>
         </div>
         <div class="col-11 row mb-3">
           <div class="col-4 text-info">営業時間</div>
@@ -44,6 +44,8 @@
         <% end %>
       <% end %>
     </div>
+    <div id='map' class="col-lg-10 offset-lg-1"></div>
+    <%= link_to "GoogleMapで開く", "https://www.google.com/maps/search/?api=1&query=#{@gym.latitude},#{@gym.longitude}", class: "col-6 display-6 offset-3 text-center py-3 btn btn-outline-primary my-5 text-center" %>
     <div class="text-center py-5">
       <% if user_signed_in? && current_user.id == @gym.user_id %>
         <p class="my-5"><%= link_to "編集", edit_gym_path, class: "btn btn-dark mx-3" %> <%= link_to "削除", @gym, method: :delete, data: { confirm: "ジム[#{@gym.name}]を削除します。本当によろしいですか？" }, class: "btn btn-danger mx-3" %></p>
@@ -51,3 +53,30 @@
     </div>
   </div>
 </div>
+<script>
+  function initMap(){
+    var test = { lat: <%= @gym.latitude %>, lng: <%= @gym.longitude %> };
+    var map = new google.maps.Map(document.getElementById('map'), {
+    center: test,
+    zoom: 15
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @gym.full_address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap" async defer></script>

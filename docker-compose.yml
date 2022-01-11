@@ -29,7 +29,7 @@ services:
 #    volumes:
 #      - db-data:/var/lib/mysql
 #    networks:
-#      - gymseek-network
+      - gymseek-network
 # ======================================
 
   web:
