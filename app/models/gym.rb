@@ -11,6 +11,13 @@ class Gym < ApplicationRecord
 
   belongs_to :user
 
+  def full_address
+    "%s%s" % [city, address]
+  end
+
+  geocoded_by :full_address
+  after_validation :geocode, if: :address_changed?
+
   private
 
   def set_introductionless_introduction
