@@ -7,15 +7,15 @@
 		<ul class="navbar-nav mr-auto h5">
 			<% if user_signed_in? %>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle form-inline" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle form-inline h4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="user-icon header-icon"><%= user_display(current_user) %></span><%= current_user.name %>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "ジムを登録する", new_gym_path, class: "dropdown-item" %>
-            <%= link_to "Myジム", gyms_path(q: { user_id_eq: current_user.id }), class: "dropdown-item" %>
-            <%= link_to "アカウントの編集", edit_user_registration_path, class: "dropdown-item"%>
+            <%= link_to "ジムを登録する", new_gym_path, class: "dropdown-item py-2 h5" %>
+            <%= link_to "Myジム", gyms_path(q: { user_id_eq: current_user.id }), class: "dropdown-item py-2 h5" %>
+            <%= link_to "アカウントの編集", edit_user_registration_path, class: "dropdown-item py-2 h5"%>
 						<div class="dropdown-divider"></div>
-						<%= link_to "ログアウト", logout_path, class: "dropdown-item"%>
+						<%= link_to "ログアウト", logout_path, class: "dropdown-item h5"%>
 					</div>
 				</li>
 			<% else %>
