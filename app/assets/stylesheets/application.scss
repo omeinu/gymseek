@@ -37,8 +37,8 @@ ul{
 
 }
 .header-icon img{
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   vertical-align: top;
   margin-right: 5px;
 }
@@ -67,4 +67,13 @@ ul{
 }
 #map{
   height: 400px;
+}
+#comment_user_icon img{
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin: 20px;
+}
+#gym_comment_form{
+  height: 140px;
 }

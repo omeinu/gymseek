@@ -12,5 +12,7 @@ devise_scope :user do
   get "logout", :to => "users/sessions#destroy"
 end
   root to: 'home#top'
-  resources :gyms
+  resources :gyms do
+    resources :comments, only: [:create]
+  end
 end

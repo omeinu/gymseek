@@ -10,6 +10,7 @@ class Gym < ApplicationRecord
   validate :opening_closing_check
 
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   def full_address
     "%s%s" % [city, address]

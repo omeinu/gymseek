@@ -12,6 +12,8 @@ class GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
+    @comments = @gym.comments
+    @comment = Comment.new
   end
 
   def new
