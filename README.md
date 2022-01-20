@@ -28,6 +28,7 @@ http://gymseek.net
 
 ・フロントエンド
   - HTML/SCSS
+  - javascript
   - Bootstrap 4.3.1
 
 ・バックエンド
