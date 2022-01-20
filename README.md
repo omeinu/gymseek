@@ -81,4 +81,4 @@ http://gymseek.net
   - sytem spec
 
 # ER図(MySQL Workbench)
-https://github.com/omeinu/gymseek/issues/23#issue-1109243939
+https://user-images.githubusercontent.com/86691510/150338687-680c0c81-3592-4abc-99ca-e28319f2efcd.png
