@@ -48,6 +48,8 @@ http://gymseek.net
   - MySQL Workbench
 
 # AWS構成図
+<img width="816" alt="スクリーンショット 2022-01-20 21 16 22" src="https://user-images.githubusercontent.com/86691510/150340340-7ca814c0-bc32-450b-9025-54acec2fc595.png">
+
 
 # 機能一覧
 
