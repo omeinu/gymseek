@@ -81,4 +81,4 @@ http://gymseek.net
   - sytem spec
 
 # ER図(MySQL Workbench)
-https://user-images.githubusercontent.com/86691510/150338687-680c0c81-3592-4abc-99ca-e28319f2efcd.png
+<img width="816" alt="スクリーンショット 2022-01-20 21 16 22" src="https://user-images.githubusercontent.com/86691510/150338687-680c0c81-3592-4abc-99ca-e28319f2efcd.png">
