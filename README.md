@@ -18,9 +18,12 @@ http://gymseek.net
 
 ・トップページの「さっそくジムを探す」から、すぐに自分に合った条件でジムを探すことができます。
 
+
 ![さっそく探す](https://user-images.githubusercontent.com/86691510/150367389-9f40e3c3-36c8-406b-a3f2-942563e20061.gif)
 
+
 ・調べたいジムの名前がわかっている場合は、ヘッダーからすぐに検索して詳細を調べることもできます。
+
 
 ![ジム名検索](https://user-images.githubusercontent.com/86691510/150370179-124d42fc-f012-4044-a5a6-7e239ae83fea.gif)
 
