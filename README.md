@@ -39,6 +39,8 @@ http://gymseek.net
 
 ・ログインすることで新しくジムを登録したり、ジムにコメントを残すことができます。
 
+![撮影](https://user-images.githubusercontent.com/86691510/150373706-d241f5e8-031b-47ee-a130-b995b0673bbd.gif)
+
 # 使用技術
 
 ・フロントエンド
