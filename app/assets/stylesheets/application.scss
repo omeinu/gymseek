@@ -20,13 +20,27 @@ ul{
   list-style: none;
   padding-left: 0;
 }
-.jumbotron {
+#top-main-wrapper .jumbotron {
     background-image: image-url("home_cover_top.jpg");
     background-size: cover;
     background-position: center 60%;
     opacity: 0.9;
     height: 700px;
   }
+#top-description-wrapper .jumbotron {
+  background-image: image-url("top_description_image.jpg");
+  background-size: cover;
+  background-position: center 60%;
+  height: 450px;
+  margin-top: 200px;
+}
+#top-signup-wrapper .jumbotron {
+  background-image: image-url("top_signup_image.jpg");
+  background-size: cover;
+  background-position: center 60%;
+  height: 450px;
+  margin-top: 50px;
+}
 .img{
     max-width: 100%;
     height: auto;
@@ -76,4 +90,7 @@ ul{
 }
 #gym_comment_form{
   height: 140px;
+}
+#top-description{
+  background-color: black;
 }
