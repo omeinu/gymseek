@@ -1,6 +1,7 @@
 # Gymseekの概要
 
 ・岡山県内で自分に合ったジムを探すためのWebアプリです。
+
 ![gymseekとは](https://user-images.githubusercontent.com/86691510/150344071-ab8dd2bb-7310-443d-875b-a95f9ef43388.gif)
 
 ・フィットネスやヨガなど、自分に目的に合ったジムを検索することができます。
